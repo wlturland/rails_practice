@@ -1,10 +1,16 @@
 class Song < ActiveRecord::Base
   belongs_to :artist
 
-  validates :name, presence: true, length: {minimum: 3}
-  # validates :genre_id, presence: true
-  validates :artist_id, presence: true
+	validates :name, presence: true, length: {minimum: 3}
+	# validates :genre_id, presence: true
+	validates :artist_id, presence: true
+	validates_uniqueness_of :name, :scope => :artist_id
+	# Creating a rescent scope that gives items created within the last minutes
+	scope :recent, -> (minutes_past=60) {where("created_at > ?", minutes_past.minutes.ago)}
+	scope :today, -> {where('DATE(created_at) = ?', Date.today)}
 end
+
+
 
 # Validate multiple feilds at once
 # validates :course, :description, :honors. :credit, presence: true
