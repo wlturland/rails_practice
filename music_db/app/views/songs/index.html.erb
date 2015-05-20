@@ -5,8 +5,8 @@
 <table class = "table">
   <thead>
     <tr>
-      <th>Artist</th>
       <th>Name</th>
+      <th>Artist</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,11 +14,13 @@
   <tbody>
     <% @songs.each do |song| %>
       <tr>
-        <td><%= song.artist.name %></td>
         <td><%= song.name %></td>
-        <td><%= link_to 'Show', song %></td>
-        <td><%= link_to 'Edit', edit_song_path(song) %></td>
-        <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= song.artist.name %></td>
+         <td class= "btn-group btn-group-sm" role="group">
+          <%= link_to 'Show', song, class:"btn btn-info" %>
+          <%= link_to 'Edit', edit_song_path(song), class:"btn btn-warning" %>
+          <%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
