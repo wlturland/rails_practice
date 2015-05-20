@@ -41,6 +41,10 @@ gem 'starter_generators'
 group :development do
   # Quiet those assets down!
   gem 'quiet_assets'
+  # Add Faker for db mad libs
+	gem 'faker'
+	# Add Populator for filling in db
+	gem 'populator'
 end
 
 # Enable prettier rails console printing

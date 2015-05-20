@@ -3,13 +3,11 @@
 one:
   name: MyString
   breed: MyString
-  string: MyString
-  age: 
+  age: 1
   owner_id: 
 
 two:
   name: MyString
   breed: MyString
-  string: MyString
-  age: 
+  age: 1
   owner_id: 
